@@ -30,7 +30,7 @@ public class Program {
                 cantidad = Integer.parseInt(args[1]);
                 opcion = args[0].substring(3, 5);
             } else {
-                System.out.println("Parametro Invalido");
+                //System.out.println("Opción no válida");
                 System.exit(1);
             }
         }
@@ -65,7 +65,7 @@ public class Program {
             }
             break;
         default:
-            System.out.println("Parametro Invalido");
+            System.out.println("Opción no válida");
             System.exit(1);
             break;
         }
