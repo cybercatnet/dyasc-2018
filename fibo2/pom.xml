@@ -37,7 +37,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>nombre_de_proyecto</finalName>
+        <finalName>fibo2</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
