@@ -73,7 +73,7 @@ public class Fibo {
         case "vd":
             switch (this.modo) {
             case "l":
-                salida += this.cantidad + ">:";
+                salida += this.cantidad + ">:" + "\n";
                 for (int i = 0; i < this.cantidad; i++) {
                     salida += this.lista.get(i) + "\n";
                 }
@@ -87,7 +87,7 @@ public class Fibo {
         case "vi":
             switch (this.modo) {
             case "l":
-                salida += this.cantidad + ">:";
+                salida += this.cantidad + ">:" + "\n";
                 for (int i = this.cantidad - 1; i >= 0; i--) {
                     salida += this.lista.get(i) + "\n";
                 }
@@ -103,7 +103,7 @@ public class Fibo {
             System.exit(1);
             break;
         }
-        System.out.println(salida);
+        System.out.print(salida);
         if (this.archivo != null) {
             try {
 
