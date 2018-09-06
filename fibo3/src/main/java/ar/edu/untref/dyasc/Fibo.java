@@ -103,20 +103,22 @@ public class Fibo {
             System.exit(1);
             break;
         }
-        System.out.print(salida);
-        if (this.archivo != null) {
-            try {
 
+        if (this.archivo == null) {
+            System.out.print(salida);
+        } else {
+
+            try {
+                System.out.print("fibo<" + this.cantidad + "> guardado en " + this.archivo);
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(this.archivo));
 
                 bufferedWriter.write(salida);
 
                 bufferedWriter.close();
             } catch (IOException ex) {
-                System.out.println("Error writing to file '" + this.archivo + "'");
+                // System.out.println("Error writing to file '" + this.archivo + "'");
             }
         }
-
     }
 
     public void calcular() {
