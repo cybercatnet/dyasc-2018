@@ -11,23 +11,23 @@ public class Bitacora {
     }
 
     public void registrarEvento(String descripcion) {
-    	String detalleRegistro = obtenerDetalleRegistroFormateado(descripcion);
-        
+        String detalleRegistro = obtenerDetalleRegistroFormateado(descripcion);
+
         generarRegistro(detalleRegistro);
-        
+
     }
 
     private void generarRegistro(String detalleRegistro) {
         this.configuracion.salidaDestinoCompuesta.registrar(detalleRegistro);
-        
+
     }
 
     private String obtenerDetalleRegistroFormateado(String descripcion) {
-    	LocalDateTime fecha = LocalDateTime.now();
+        LocalDateTime fecha = LocalDateTime.now();
         DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm");
         String fechaFormateada = fecha.format(formateador);
         String detalleRegistro = fechaFormateada + " " + descripcion;
-		return detalleRegistro;
-	}
+        return detalleRegistro;
+    }
 
 }

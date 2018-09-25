@@ -2,7 +2,7 @@ package ar.edu.untref.dyasc;
 
 import java.util.ArrayList;
 
-public class SalidaDestinoCompuesta extends SalidaDestino{
+public class SalidaDestinoCompuesta extends SalidaDestino {
     public SalidaDestinoCompuesta() {
         super();
     }
