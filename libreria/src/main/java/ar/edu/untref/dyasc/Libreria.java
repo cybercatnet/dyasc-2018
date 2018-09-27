@@ -23,19 +23,18 @@ public class Libreria {
     public void addCuentaCorriente(CuentaCorriente cuentaCorriente) {
         this.cuentas.add(cuentaCorriente);
     }
-    
-    public ArrayList<Producto> getProductos( ) {
+
+    public ArrayList<Producto> getProductos() {
         return this.productos;
     }
 
-    public ArrayList<Cliente> getClientes( ) {
+    public ArrayList<Cliente> getClientes() {
         return this.clientes;
     }
 
-    public ArrayList<CuentaCorriente> getCuentasCorrientes( ) {
+    public ArrayList<CuentaCorriente> getCuentasCorrientes() {
         return this.cuentas;
     }
-
 
     private void imprimirListaProductos(CuentaCorriente cuentaCorriente, int anio, int mes) {
         for (Producto producto : cuentaCorriente.getCompras(anio, mes)) {
@@ -48,7 +47,7 @@ public class Libreria {
             System.out.println(producto.getnombre());
         }
     }
-    
+
     public void cobrarACuentaCorriente(CuentaCorriente cuentaCorriente, int anio, int mes) {
         System.out.println("Cuenta Corriente del Cliente " + cuentaCorriente.getCliente().getNombre());
         System.out.println("Productos:");

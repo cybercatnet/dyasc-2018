@@ -14,7 +14,7 @@ public class Cliente {
     public String getDireccion() {
         return this.direccion;
     }
-    
+
     public String getNombre() {
         return this.nombre;
     }
