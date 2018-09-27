@@ -4,8 +4,8 @@ public class ArticuloDeLibreria extends Producto {
 
     private static double IVA = 21;
 
-    public ArticuloDeLibreria(String nombre,double precio) {
-        super(nombre, precio);
+    public ArticuloDeLibreria(String nombre, double precio, TipoDeSuscripcion tipoDeSuscripcion) {
+        super(nombre, precio, tipoDeSuscripcion);
     }
 
     public double getPrecio() {

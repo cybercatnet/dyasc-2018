@@ -1,13 +1,13 @@
 package ar.edu.untref.dyasc;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Libreria {
-    private List<CuentaCorriente> cuentas;
+    private ArrayList<CuentaCorriente> cuentas;
 
-    private List<Producto> productos;
+    private ArrayList<Producto> productos;
 
-    private List<Cliente> clientes;
+    private ArrayList<Cliente> clientes;
 
     public Libreria() {
     }
@@ -22,6 +22,36 @@ public class Libreria {
 
     public void addCuentaCorriente(CuentaCorriente cuentaCorriente) {
         this.cuentas.add(cuentaCorriente);
+    }
+
+    private void imprimirListaProductos(CuentaCorriente cuentaCorriente, int anio, int mes) {
+        for (Producto producto : cuentaCorriente.getCompras(anio, mes)) {
+            System.out.println(producto.getnombre());
+        }
+    }
+
+    private void imprimirListaProductos(CuentaCorriente cuentaCorriente, int anio) {
+        for (Producto producto : cuentaCorriente.getCompras(anio)) {
+            System.out.println(producto.getnombre());
+        }
+    }
+
+    public void cobrarACuentaCorriente(CuentaCorriente cuentaCorriente, int anio, int mes) {
+        System.out.println("Cuenta Corriente del Cliente " + cuentaCorriente.getCliente().getNombre());
+        System.out.println("Productos:");
+        imprimirListaProductos(cuentaCorriente, anio, mes);
+        System.out.println();
+        System.out.println("Monto a Pagar al anio " + anio + " " + "en el mes de " + " " + mes + " " + cuentaCorriente.montoACobrar(anio, mes));
+        System.out.println();
+    }
+
+    public void cobrarACuentaCorriente(CuentaCorriente cuentaCorriente, int anio) {
+        System.out.println("Cuenta Corriente del Cliente " + cuentaCorriente.getCliente().getNombre());
+        System.out.println("Productos:");
+        imprimirListaProductos(cuentaCorriente, anio);
+        System.out.println();
+        System.out.println("Monto a Pagar al anio " + anio + " " + cuentaCorriente.montoACobrar(anio));
+        System.out.println();
     }
 
 }
