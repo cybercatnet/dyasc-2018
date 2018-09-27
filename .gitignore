@@ -14,3 +14,4 @@ fibo3/bin/salida.txt
 fibo3/salida.txt
 fibo3/salida.txt
 bitacora/bitacora.txt
+*.lock
