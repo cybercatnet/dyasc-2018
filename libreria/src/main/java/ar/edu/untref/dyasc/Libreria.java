@@ -3,11 +3,11 @@ package ar.edu.untref.dyasc;
 import java.util.ArrayList;
 
 public class Libreria {
-    private ArrayList<CuentaCorriente> cuentas;
+    private ArrayList<CuentaCorriente> cuentas = new ArrayList<CuentaCorriente>();
 
-    private ArrayList<Producto> productos;
+    private ArrayList<Producto> productos = new ArrayList<Producto>();
 
-    private ArrayList<Cliente> clientes;
+    private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
     public Libreria() {
     }
@@ -35,13 +35,13 @@ public class Libreria {
             System.out.println(producto.getnombre());
         }
     }
-
+    
     public void cobrarACuentaCorriente(CuentaCorriente cuentaCorriente, int anio, int mes) {
         System.out.println("Cuenta Corriente del Cliente " + cuentaCorriente.getCliente().getNombre());
         System.out.println("Productos:");
         imprimirListaProductos(cuentaCorriente, anio, mes);
         System.out.println();
-        System.out.println("Monto a Pagar al anio " + anio + " " + "en el mes de " + " " + mes + " " + cuentaCorriente.montoACobrar(anio, mes));
+        System.out.println("Monto a Pagar al anio " + anio + " " + "en el mes de " + mes + " " + cuentaCorriente.montoACobrar(anio, mes));
         System.out.println();
     }
 
