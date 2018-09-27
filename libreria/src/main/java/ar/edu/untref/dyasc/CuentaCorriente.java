@@ -31,13 +31,13 @@ public class CuentaCorriente {
     }
 
     public void addCompra(Producto producto, int anio, int mes) {
-        if(!compras.containsKey(anio)) {
+        if (!compras.containsKey(anio)) {
             compras.put(anio, new HashMap<Integer, ArrayList<Producto>>());
         }
-        if(!compras.get(anio).containsKey(mes)){
+        if (!compras.get(anio).containsKey(mes)) {
             compras.get(anio).put(mes, new ArrayList<Producto>());
         }
-        
+
         compras.get(anio).get(mes).add(producto);
     }
 
@@ -56,13 +56,13 @@ public class CuentaCorriente {
             if (this.cliente.isRegistrado()) {
                 if (producto.getTipoDeSuscripcion() == TipoDeSuscripcion.ANUAL) {
                     monto += producto.getPrecio() * 0.8 * 12;
-                }else {
+                } else {
                     monto += producto.getPrecio() * 0.95;
                 }
-            }else {
+            } else {
                 if (producto.getTipoDeSuscripcion() == TipoDeSuscripcion.ANUAL) {
                     monto += producto.getPrecio() * 12;
-                }else {
+                } else {
                     monto += producto.getPrecio();
                 }
             }
