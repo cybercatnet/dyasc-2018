@@ -11,13 +11,16 @@ public class Barco {
     }
 
     public boolean contiene(int posicionX, int posicionY) {
-        int posicionXMax = celdasOcupadas.length;
-        int posicionYMax = celdasOcupadas[0].length;
-        return ((posicionX > this.posicionX && posicionY > this.posicionY)
-                && (posicionX < posicionXMax && posicionY < posicionYMax));
+        int posicionXMax = celdasOcupadas.length - 1;
+        int posicionYMax = celdasOcupadas[0].length - 1;
+        return ((posicionX >= this.posicionX && posicionY >= this.posicionY) && (posicionX <= posicionXMax && posicionY <= posicionYMax));
     }
-    
+
     protected void setCeldasOcupadas(TipoDeCelda celdasOcupadas[][]) {
         this.celdasOcupadas = celdasOcupadas;
+    }
+
+    public TipoDeCelda verCelda(int x, int y) {
+        return this.celdasOcupadas[x - this.posicionX][y - this.posicionY];
     }
 }
