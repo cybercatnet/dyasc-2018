@@ -11,9 +11,12 @@ public class Barco {
     }
 
     public boolean contiene(int posicionX, int posicionY) {
+        int posicionXMin = this.posicionX;
+        int posicionYMin = this.posicionY;
         int posicionXMax = celdasOcupadas.length - 1;
         int posicionYMax = celdasOcupadas[0].length - 1;
-        return ((posicionX >= this.posicionX && posicionY >= this.posicionY) && (posicionX <= posicionXMax && posicionY <= posicionYMax));
+        return (this.posicionX == posicionX && this.posicionY == posicionY);
+        //return ((posicionX >= posicionXMin && posicionY >= posicionYMin) && (posicionX <= posicionXMax && posicionY <= posicionYMax));
     }
 
     protected void setCeldasOcupadas(TipoDeCelda celdasOcupadas[][]) {

@@ -1,6 +1,7 @@
 package ar.edu.untref.dyasc;
 
 import org.junit.Assert;
+import java.util.concurrent.ThreadLocalRandom;
 import org.junit.Test;
 
 public class TestTablero {
@@ -16,7 +17,8 @@ public class TestTablero {
             }
         }
     }
-
+    
+    
     @Test
     public void testCreoUnBoteYVerificoQueEsteEnLaPosicionCreadaYQueTodoLoDemasSeaAgua() {
         int ancho = 10;
@@ -26,9 +28,32 @@ public class TestTablero {
         tablero.agregarBarco(bote);
         for (int x = 0; x < ancho; x++) {
             for (int y = 0; y < alto; y++) {
-                if(x==0 && y==0) {
+                if (x == 0 && y == 0) {
                     Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
-                }else {
+                } else {
+                    Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                }
+            }
+        }
+    }
+
+    @Test
+    public void testCreoUnBoteEnUnaPosicionAleatoriaYVerificoQueEsteEnLaPosicionCreadaYQueTodoLoDemasSeaAgua() {
+        int ancho = ThreadLocalRandom.current().nextInt(1, 3 + 1);
+        int alto = ThreadLocalRandom.current().nextInt(1, 3 + 1);
+        System.out.println(ancho + " " + alto);
+        Tablero tablero = new Tablero(ancho, alto);
+        int posicionXBote = ThreadLocalRandom.current().nextInt(0, ancho + 1);
+        int posicionYBote = ThreadLocalRandom.current().nextInt(0, alto + 1);
+        System.out.println(posicionXBote + " " + posicionYBote);
+        Bote bote = new Bote(posicionXBote, posicionYBote);
+        tablero.agregarBarco(bote);
+        for (int x = 0; x < ancho; x++) {
+            for (int y = 0; y < alto; y++) {
+                if (x == posicionXBote && y == posicionYBote) {
+                    System.out.println(x + " " + y);
+                    Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                } else {
                     Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
                 }
             }
