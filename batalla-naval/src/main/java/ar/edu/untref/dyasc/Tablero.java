@@ -19,7 +19,6 @@ public class Tablero {
     public TipoDeCelda verCelda(int x, int y) {
         for (Barco barco : this.barcos) {
             if (barco.contiene(x, y)) {
-                System.out.println("si");
                 return barco.verCelda(x, y);
             }
         }
