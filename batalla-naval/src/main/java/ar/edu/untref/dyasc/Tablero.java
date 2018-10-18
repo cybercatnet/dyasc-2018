@@ -30,7 +30,19 @@ public class Tablero {
 
     }
 
-    public TipoDeCelda verCelda(int x, int y) {
+    public TipoDeCelda verCelda(int x, int y) throws coordenadaFueraDelTableroException {
+        if (x < 0) {
+            throw new coordenadaFueraDelTableroException();
+        }
+        if (y < 0) {
+            throw new coordenadaFueraDelTableroException();
+        }
+        if (x > this.ancho - 1) {
+            throw new coordenadaFueraDelTableroException();
+        }
+        if (y > this.alto - 1) {
+            throw new coordenadaFueraDelTableroException();
+        }
         for (Barco barco : this.barcos) {
             if (barco.contiene(x, y)) {
                 return barco.verCelda(x, y);
@@ -39,7 +51,19 @@ public class Tablero {
         return TipoDeCelda.AGUA;
     }
 
-    public Object dispararCelda(int x, int y) {
+    public Object dispararCelda(int x, int y) throws coordenadaFueraDelTableroException {
+        if (x < 0) {
+            throw new coordenadaFueraDelTableroException();
+        }
+        if (y < 0) {
+            throw new coordenadaFueraDelTableroException();
+        }
+        if (x > this.ancho - 1) {
+            throw new coordenadaFueraDelTableroException();
+        }
+        if (y > this.alto - 1) {
+            throw new coordenadaFueraDelTableroException();
+        }
         for (Barco barco : this.barcos) {
             if (barco.contiene(x, y)) {
                 return barco.dispararCelda(x, y);

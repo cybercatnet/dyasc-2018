@@ -13,7 +13,11 @@ public class TestTablero {
         Tablero tablero = new Tablero(ancho, alto);
         for (int x = 0; x < ancho; x++) {
             for (int y = 0; y < alto; y++) {
-                Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                try {
+                    Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                } catch (coordenadaFueraDelTableroException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -32,9 +36,17 @@ public class TestTablero {
         for (int x = 0; x < ancho; x++) {
             for (int y = 0; y < alto; y++) {
                 if (x == 0 && y == 0) {
-                    Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                    try {
+                        Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                    } catch (coordenadaFueraDelTableroException e) {
+                        e.printStackTrace();
+                    }
                 } else {
-                    Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                    try {
+                        Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                    } catch (coordenadaFueraDelTableroException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
@@ -61,9 +73,17 @@ public class TestTablero {
         for (int x = 0; x < ancho; x++) {
             for (int y = 0; y < alto; y++) {
                 if (x == posicionXBote && y == posicionYBote) {
-                    Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                    try {
+                        Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                    } catch (coordenadaFueraDelTableroException e) {
+                        e.printStackTrace();
+                    }
                 } else {
-                    Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                    try {
+                        Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                    } catch (coordenadaFueraDelTableroException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
@@ -83,9 +103,17 @@ public class TestTablero {
         for (int x = 0; x < ancho; x++) {
             for (int y = 0; y < alto; y++) {
                 if ((y == 0) && (x == 0 || x == 1 || x == 2)) {
-                    Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                    try {
+                        Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                    } catch (coordenadaFueraDelTableroException e) {
+                        e.printStackTrace();
+                    }
                 } else {
-                    Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                    try {
+                        Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                    } catch (coordenadaFueraDelTableroException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
@@ -105,9 +133,17 @@ public class TestTablero {
         for (int x = 0; x < ancho; x++) {
             for (int y = 0; y < alto; y++) {
                 if ((x == 0) && (y == 0 || y == 1 || y == 2)) {
-                    Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                    try {
+                        Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                    } catch (coordenadaFueraDelTableroException e) {
+                        e.printStackTrace();
+                    }
                 } else {
-                    Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                    try {
+                        Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                    } catch (coordenadaFueraDelTableroException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
@@ -143,15 +179,31 @@ public class TestTablero {
             for (int y = 0; y < alto; y++) {
                 if (orientacion == TipoDeOrientacion.HORIZONTAL) {
                     if ((y == posicionYCrucero) && (x == posicionXCrucero || x == posicionXCrucero + 1 || x == posicionXCrucero + 2)) {
-                        Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                        try {
+                            Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                        } catch (coordenadaFueraDelTableroException e) {
+                            e.printStackTrace();
+                        }
                     } else {
-                        Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                        try {
+                            Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                        } catch (coordenadaFueraDelTableroException e) {
+                            e.printStackTrace();
+                        }
                     }
                 } else {
                     if ((x == posicionXCrucero) && (y == posicionYCrucero || y == posicionYCrucero + 1 || y == posicionYCrucero + 2)) {
-                        Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                        try {
+                            Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                        } catch (coordenadaFueraDelTableroException e) {
+                            e.printStackTrace();
+                        }
                     } else {
-                        Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                        try {
+                            Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                        } catch (coordenadaFueraDelTableroException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
 
@@ -173,9 +225,17 @@ public class TestTablero {
         for (int x = 0; x < ancho; x++) {
             for (int y = 0; y < alto; y++) {
                 if (x == 0 && y == 0) {
-                    Assert.assertEquals(TipoDeCelda.HUNDIDO, tablero.dispararCelda(x, y));
+                    try {
+                        Assert.assertEquals(TipoDeCelda.HUNDIDO, tablero.dispararCelda(x, y));
+                    } catch (coordenadaFueraDelTableroException e) {
+                        e.printStackTrace();
+                    }
                 } else {
-                    Assert.assertEquals(TipoDeCelda.AGUA, tablero.dispararCelda(x, y));
+                    try {
+                        Assert.assertEquals(TipoDeCelda.AGUA, tablero.dispararCelda(x, y));
+                    } catch (coordenadaFueraDelTableroException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
@@ -202,9 +262,17 @@ public class TestTablero {
         for (int x = 0; x < ancho; x++) {
             for (int y = 0; y < alto; y++) {
                 if (x == posicionXBote && y == posicionYBote) {
-                    Assert.assertEquals(TipoDeCelda.HUNDIDO, tablero.dispararCelda(x, y));
+                    try {
+                        Assert.assertEquals(TipoDeCelda.HUNDIDO, tablero.dispararCelda(x, y));
+                    } catch (coordenadaFueraDelTableroException e) {
+                        e.printStackTrace();
+                    }
                 } else {
-                    Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                    try {
+                        Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                    } catch (coordenadaFueraDelTableroException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
@@ -225,12 +293,24 @@ public class TestTablero {
             for (int y = 0; y < alto; y++) {
                 if ((y == 0) && (x == 0 || x == 1 || x == 2)) {
                     if (x == 2) {
-                        Assert.assertEquals(TipoDeCelda.HUNDIDO, tablero.dispararCelda(x, y));
+                        try {
+                            Assert.assertEquals(TipoDeCelda.HUNDIDO, tablero.dispararCelda(x, y));
+                        } catch (coordenadaFueraDelTableroException e) {
+                            e.printStackTrace();
+                        }
                     } else {
-                        Assert.assertEquals(TipoDeCelda.TOCADO, tablero.dispararCelda(x, y));
+                        try {
+                            Assert.assertEquals(TipoDeCelda.TOCADO, tablero.dispararCelda(x, y));
+                        } catch (coordenadaFueraDelTableroException e) {
+                            e.printStackTrace();
+                        }
                     }
                 } else {
-                    Assert.assertEquals(TipoDeCelda.AGUA, tablero.dispararCelda(x, y));
+                    try {
+                        Assert.assertEquals(TipoDeCelda.AGUA, tablero.dispararCelda(x, y));
+                    } catch (coordenadaFueraDelTableroException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
@@ -268,22 +348,46 @@ public class TestTablero {
                 if (orientacion == TipoDeOrientacion.HORIZONTAL) {
                     if ((y == posicionYCrucero) && (x == posicionXCrucero || x == posicionXCrucero + 1 || x == posicionXCrucero + 2)) {
                         if (x == posicionXCrucero + 2) {
-                            Assert.assertEquals(TipoDeCelda.HUNDIDO, tablero.dispararCelda(x, y));
+                            try {
+                                Assert.assertEquals(TipoDeCelda.HUNDIDO, tablero.dispararCelda(x, y));
+                            } catch (coordenadaFueraDelTableroException e) {
+                                e.printStackTrace();
+                            }
                         } else {
-                            Assert.assertEquals(TipoDeCelda.TOCADO, tablero.dispararCelda(x, y));
+                            try {
+                                Assert.assertEquals(TipoDeCelda.TOCADO, tablero.dispararCelda(x, y));
+                            } catch (coordenadaFueraDelTableroException e) {
+                                e.printStackTrace();
+                            }
                         }
                     } else {
-                        Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                        try {
+                            Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                        } catch (coordenadaFueraDelTableroException e) {
+                            e.printStackTrace();
+                        }
                     }
                 } else {
                     if ((x == posicionXCrucero) && (y == posicionYCrucero || y == posicionYCrucero + 1 || y == posicionYCrucero + 2)) {
                         if (y == posicionYCrucero + 2) {
-                            Assert.assertEquals(TipoDeCelda.HUNDIDO, tablero.dispararCelda(x, y));
+                            try {
+                                Assert.assertEquals(TipoDeCelda.HUNDIDO, tablero.dispararCelda(x, y));
+                            } catch (coordenadaFueraDelTableroException e) {
+                                e.printStackTrace();
+                            }
                         } else {
-                            Assert.assertEquals(TipoDeCelda.TOCADO, tablero.dispararCelda(x, y));
+                            try {
+                                Assert.assertEquals(TipoDeCelda.TOCADO, tablero.dispararCelda(x, y));
+                            } catch (coordenadaFueraDelTableroException e) {
+                                e.printStackTrace();
+                            }
                         }
                     } else {
-                        Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                        try {
+                            Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                        } catch (coordenadaFueraDelTableroException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
 
@@ -312,5 +416,13 @@ public class TestTablero {
         TipoDeOrientacion orientacion = TipoDeOrientacion.HORIZONTAL;
         Crucero crucero = new Crucero(posicionXCrucero, posicionYCrucero, orientacion);
         tablero.agregarBarco(crucero);
+    }
+
+    @Test(expected = coordenadaFueraDelTableroException.class)
+    public void testVeoUnaCeldaFueraDelTableroYEsperoException() throws coordenadaFueraDelTableroException {
+        int ancho = 10;
+        int alto = 10;
+        Tablero tablero = new Tablero(ancho, alto);
+        tablero.verCelda(0, 10);
     }
 }
