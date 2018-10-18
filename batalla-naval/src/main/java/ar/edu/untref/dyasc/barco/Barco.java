@@ -1,6 +1,6 @@
-package Barco;
+package ar.edu.untref.dyasc.barco;
 
-import Tipos.TipoDeCelda;
+import ar.edu.untref.dyasc.tipos.TipoDeCelda;
 
 public class Barco {
     private int posicionX = 0;

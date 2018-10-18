@@ -1,7 +1,7 @@
-package Barco;
+package ar.edu.untref.dyasc.barco;
 
-import Tipos.TipoDeCelda;
-import Tipos.TipoDeOrientacion;
+import ar.edu.untref.dyasc.tipos.TipoDeCelda;
+import ar.edu.untref.dyasc.tipos.TipoDeOrientacion;
 
 public class Crucero extends Barco {
 

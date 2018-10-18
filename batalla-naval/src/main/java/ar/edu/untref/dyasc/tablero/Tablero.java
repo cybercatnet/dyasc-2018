@@ -1,4 +1,4 @@
-package tablero;
+package ar.edu.untref.dyasc.tablero;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.stream.IntStream;
 
 import org.glassfish.grizzly.utils.Pair;
 
-import Barco.Barco;
-import Tipos.TipoDeCelda;
+import ar.edu.untref.dyasc.barco.Barco;
+import ar.edu.untref.dyasc.tipos.TipoDeCelda;
 
 public class Tablero {
     private ArrayList<Barco> barcos = new ArrayList<Barco>();

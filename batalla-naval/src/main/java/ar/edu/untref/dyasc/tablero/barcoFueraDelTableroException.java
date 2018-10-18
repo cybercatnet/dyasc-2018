@@ -1,4 +1,4 @@
-package tablero;
+package ar.edu.untref.dyasc.tablero;
 
 public class barcoFueraDelTableroException extends Exception {
 

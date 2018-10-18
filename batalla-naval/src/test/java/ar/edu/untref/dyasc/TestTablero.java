@@ -4,14 +4,14 @@ import org.junit.Assert;
 import java.util.concurrent.ThreadLocalRandom;
 import org.junit.Test;
 
-import Barco.Bote;
-import Barco.Crucero;
-import Tipos.TipoDeCelda;
-import Tipos.TipoDeOrientacion;
-import tablero.Tablero;
-import tablero.barcoFueraDelTableroException;
-import tablero.barcoSuperpuestoException;
-import tablero.coordenadaFueraDelTableroException;
+import ar.edu.untref.dyasc.barco.Bote;
+import ar.edu.untref.dyasc.barco.Crucero;
+import ar.edu.untref.dyasc.tipos.TipoDeCelda;
+import ar.edu.untref.dyasc.tipos.TipoDeOrientacion;
+import ar.edu.untref.dyasc.tablero.Tablero;
+import ar.edu.untref.dyasc.tablero.barcoFueraDelTableroException;
+import ar.edu.untref.dyasc.tablero.barcoSuperpuestoException;
+import ar.edu.untref.dyasc.tablero.coordenadaFueraDelTableroException;
 
 public class TestTablero {
 
