@@ -451,7 +451,7 @@ public class TestTablero {
         Tablero tablero = new Tablero(ancho, alto);
         tablero.verCelda(0, 10);
     }
-    
+
     @Test(expected = barcoSuperpuestoException.class)
     public void testCreoDosBotesEnLaMismaCeldaYEsperoException() throws barcoSuperpuestoException {
         int ancho = 10;
@@ -467,6 +467,25 @@ public class TestTablero {
         } catch (barcoFueraDelTableroException e) {
             e.printStackTrace();
         }
-        
     }
+
+    @Test(expected = barcoSuperpuestoException.class)
+    public void testCreoDosCrucerosSuperpuestosYEsperoException() throws barcoSuperpuestoException {
+        int ancho = 10;
+        int alto = 10;
+        int posicionXCrucero1 = 0;
+        int posicionYCrucero1 = 0;
+        int posicionXCrucero2 = 2;
+        int posicionYCrucero2 = 0;
+        Tablero tablero = new Tablero(ancho, alto);
+        Crucero crucero1 = new Crucero(posicionXCrucero1, posicionYCrucero1, TipoDeOrientacion.HORIZONTAL);
+        Crucero crucero2 = new Crucero(posicionXCrucero2, posicionYCrucero2, TipoDeOrientacion.HORIZONTAL);
+        try {
+            tablero.agregarBarco(crucero1);
+            tablero.agregarBarco(crucero2);
+        } catch (barcoFueraDelTableroException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
