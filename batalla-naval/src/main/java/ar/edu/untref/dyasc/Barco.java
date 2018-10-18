@@ -3,6 +3,7 @@ package ar.edu.untref.dyasc;
 public class Barco {
     private int posicionX = 0;
     private int posicionY = 0;
+
     private TipoDeCelda celdasOcupadas[][];
 
     public Barco(int posicionX, int posicionY) {
@@ -10,11 +11,27 @@ public class Barco {
         this.posicionY = posicionY;
     }
 
+    public int getAncho() {
+        return celdasOcupadas.length;
+    }
+
+    public int getAlto() {
+        return celdasOcupadas[0].length;
+    }
+
+    public int getPosicionX() {
+        return posicionX;
+    }
+
+    public int getPosicionY() {
+        return posicionY;
+    }
+
     public boolean contiene(int posicionX, int posicionY) {
         int posicionXMin = this.posicionX;
         int posicionYMin = this.posicionY;
-        int posicionXMax = posicionXMin + celdasOcupadas.length - 1;
-        int posicionYMax = posicionYMin + celdasOcupadas[0].length - 1;
+        int posicionXMax = posicionXMin + getAncho() - 1;
+        int posicionYMax = posicionYMin + getAlto() - 1;
         return ((posicionX >= posicionXMin && posicionY >= posicionYMin) && (posicionX <= posicionXMax && posicionY <= posicionYMax));
     }
 
