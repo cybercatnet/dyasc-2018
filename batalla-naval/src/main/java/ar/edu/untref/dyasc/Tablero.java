@@ -12,7 +12,7 @@ public class Tablero {
         this.alto = alto;
     }
 
-    public void agregarBarco(Barco barco) throws barcoFueraDelTableroException {
+    public void agregarBarco(Barco barco) throws barcoFueraDelTableroException, barcoSuperpuestoException {
         if (barco.getPosicionX() < 0) {
             throw new barcoFueraDelTableroException();
         }
@@ -24,6 +24,12 @@ public class Tablero {
         }
         if ((barco.getPosicionY() + barco.getAlto()) > this.alto) {
             throw new barcoFueraDelTableroException();
+        }
+
+        for (Barco barcoo : this.barcos) {
+            if (barcoo.contiene(barco.getPosicionX(), barco.getPosicionY())) {
+                throw new barcoSuperpuestoException();
+            }
         }
 
         this.barcos.add(barco);
