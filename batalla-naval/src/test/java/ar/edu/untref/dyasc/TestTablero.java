@@ -155,4 +155,26 @@ public class TestTablero {
             }
         }
     }
+    
+    @Test
+    public void testCreoUnCruceroHorizontalYDisparoEnLaPosicionCreadaYQueTodoLoDemasSeaAgua() {
+        int ancho = 10;
+        int alto = 10;
+        Tablero tablero = new Tablero(ancho, alto);
+        Crucero crucero = new Crucero(0, 0, TipoDeOrientacion.HORIZONTAL);
+        tablero.agregarBarco(crucero);
+        for (int x = 0; x < ancho; x++) {
+            for (int y = 0; y < alto; y++) {
+                if ((y == 0) && (x == 0 || x == 1 || x == 2)) {
+                    if(x == 2) {
+                        Assert.assertEquals(TipoDeCelda.HUNDIDO, tablero.dispararCelda(x, y));
+                    }else {
+                        Assert.assertEquals(TipoDeCelda.TOCADO, tablero.dispararCelda(x, y));
+                    }
+                } else {
+                    Assert.assertEquals(TipoDeCelda.AGUA, tablero.dispararCelda(x, y));
+                }
+            }
+        }
+    }
 }
