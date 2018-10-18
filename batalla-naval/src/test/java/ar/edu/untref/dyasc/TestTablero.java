@@ -190,12 +190,13 @@ public class TestTablero {
         int ancho = ThreadLocalRandom.current().nextInt(anchoMinimo, anchoMaximo + 1);
         int alto = ThreadLocalRandom.current().nextInt(altoMinimo, altoMaximo + 1);
         Tablero tablero = new Tablero(ancho, alto);
-        int posicionXBote = ThreadLocalRandom.current().nextInt(0, ancho + 1);
-        int posicionYBote = ThreadLocalRandom.current().nextInt(0, alto + 1);
+        int posicionXBote = ThreadLocalRandom.current().nextInt(0, ancho);
+        int posicionYBote = ThreadLocalRandom.current().nextInt(0, alto);
         Bote bote = new Bote(posicionXBote, posicionYBote);
         try {
             tablero.agregarBarco(bote);
         } catch (barcoFueraDelTableroException e) {
+            System.out.println("testCreoUnBoteEnUnaPosicionAleatoriaYDisparoEnLaPosicionCreadaYQueTodoLoDemasSeaAgua");
             e.printStackTrace();
         }
         for (int x = 0; x < ancho; x++) {
@@ -238,9 +239,9 @@ public class TestTablero {
     @Test
     public void testCreoUnCruceroEnUnaPosicionAleatoriaYDisparoEnLaPosicionCreadaYQueTodoLoDemasSeaAgua() {
         int anchoMinimo = 3;
-        int anchoMaximo = 10;
+        int anchoMaximo = 3;
         int altoMinimo = 3;
-        int altoMaximo = 10;
+        int altoMaximo = 3;
         int ancho = ThreadLocalRandom.current().nextInt(anchoMinimo, anchoMaximo + 1);
         int alto = ThreadLocalRandom.current().nextInt(altoMinimo, altoMaximo + 1);
         Tablero tablero = new Tablero(ancho, alto);
@@ -259,6 +260,7 @@ public class TestTablero {
         try {
             tablero.agregarBarco(crucero);
         } catch (barcoFueraDelTableroException e) {
+            System.out.println("testCreoUnCruceroEnUnaPosicionAleatoriaYDisparoEnLaPosicionCreadaYQueTodoLoDemasSeaAgua");
             e.printStackTrace();
         }
         for (int x = 0; x < ancho; x++) {
@@ -288,13 +290,27 @@ public class TestTablero {
             }
         }
     }
-    
+
     @Test(expected = barcoFueraDelTableroException.class)
     public void testCreoUnBoteFueraDelTableroYEsperoException() throws barcoFueraDelTableroException {
         int ancho = 1;
         int alto = 1;
+        int posicionXCrucero = 1;
+        int posicionYCrucero = 0;
         Tablero tablero = new Tablero(ancho, alto);
-        Bote bote = new Bote(1, 0);
+        Bote bote = new Bote(posicionXCrucero, posicionYCrucero);
         tablero.agregarBarco(bote);
+    }
+
+    @Test(expected = barcoFueraDelTableroException.class)
+    public void testCreoUnCruceroHorizontalFueraDelTableroYEsperoException() throws barcoFueraDelTableroException {
+        int ancho = 3;
+        int alto = 3;
+        int posicionXCrucero = 1;
+        int posicionYCrucero = 0;
+        Tablero tablero = new Tablero(ancho, alto);
+        TipoDeOrientacion orientacion = TipoDeOrientacion.HORIZONTAL;
+        Crucero crucero = new Crucero(posicionXCrucero, posicionYCrucero, orientacion);
+        tablero.agregarBarco(crucero);
     }
 }

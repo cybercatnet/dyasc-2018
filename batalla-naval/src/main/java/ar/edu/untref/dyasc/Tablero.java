@@ -14,21 +14,15 @@ public class Tablero {
 
     public void agregarBarco(Barco barco) throws barcoFueraDelTableroException {
         if (barco.getPosicionX() < 0) {
-            System.out.println("barco.getPosicionX " + barco.getPosicionX());
             throw new barcoFueraDelTableroException();
         }
         if (barco.getPosicionY() < 0) {
-            System.out.println("barco.getPosicionY " + barco.getPosicionY());
             throw new barcoFueraDelTableroException();
         }
-        if ((barco.getPosicionX() + barco.getAncho() - 1) > this.ancho - 1) {
-            System.out.println("(barco.getPosicionX() + barco.getAncho() - 1) " + (barco.getPosicionX() + barco.getAncho() - 1));
-            System.out.println("this.ancho " + this.ancho);
+        if ((barco.getPosicionX() + barco.getAncho()) > this.ancho) {
             throw new barcoFueraDelTableroException();
         }
-        if ((barco.getPosicionY() + barco.getAlto() - 1) > this.alto - 1) {
-            System.out.println("(barco.getPosicionY() + barco.getAlto() - 1) " + (barco.getPosicionY() + barco.getAlto() - 1));
-            System.out.println("this.alto " + this.alto);
+        if ((barco.getPosicionY() + barco.getAlto()) > this.alto) {
             throw new barcoFueraDelTableroException();
         }
 
