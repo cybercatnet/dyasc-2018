@@ -17,8 +17,7 @@ public class TestTablero {
             }
         }
     }
-    
-    
+
     @Test
     public void testCreoUnBoteYVerificoQueEsteEnLaPosicionCreadaYQueTodoLoDemasSeaAgua() {
         int ancho = 10;
@@ -49,6 +48,24 @@ public class TestTablero {
         for (int x = 0; x < ancho; x++) {
             for (int y = 0; y < alto; y++) {
                 if (x == posicionXBote && y == posicionYBote) {
+                    Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                } else {
+                    Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                }
+            }
+        }
+    }
+
+    @Test
+    public void testCreoUnCruceroHorizontalYVerificoQueEsteEnLaPosicionCreadaYQueTodoLoDemasSeaAgua() {
+        int ancho = 10;
+        int alto = 10;
+        Tablero tablero = new Tablero(ancho, alto);
+        Crucero crucero = new Crucero(0, 0, TipoDeOrientacion.HORIZONTAL);
+        tablero.agregarBarco(crucero);
+        for (int x = 0; x < ancho; x++) {
+            for (int y = 0; y < alto; y++) {
+                if ((y == 0) && (x == 0 || x == 1 || x == 2)) {
                     Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
                 } else {
                     Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
