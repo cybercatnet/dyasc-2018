@@ -157,6 +157,30 @@ public class TestTablero {
     }
     
     @Test
+    public void testCreoUnBoteEnUnaPosicionAleatoriaYDisparoEnLaPosicionCreadaYQueTodoLoDemasSeaAgua() {
+        int anchoMinimo = 3;
+        int anchoMaximo = 10;
+        int altoMinimo = 3;
+        int altoMaximo = 10;
+        int ancho = ThreadLocalRandom.current().nextInt(anchoMinimo, anchoMaximo + 1);
+        int alto = ThreadLocalRandom.current().nextInt(altoMinimo, altoMaximo + 1);
+        Tablero tablero = new Tablero(ancho, alto);
+        int posicionXBote = ThreadLocalRandom.current().nextInt(0, ancho + 1);
+        int posicionYBote = ThreadLocalRandom.current().nextInt(0, alto + 1);
+        Bote bote = new Bote(posicionXBote, posicionYBote);
+        tablero.agregarBarco(bote);
+        for (int x = 0; x < ancho; x++) {
+            for (int y = 0; y < alto; y++) {
+                if (x == posicionXBote && y == posicionYBote) {
+                    Assert.assertEquals(TipoDeCelda.HUNDIDO, tablero.dispararCelda(x, y));
+                } else {
+                    Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                }
+            }
+        }
+    }
+    
+    @Test
     public void testCreoUnCruceroHorizontalYDisparoEnLaPosicionCreadaYQueTodoLoDemasSeaAgua() {
         int ancho = 10;
         int alto = 10;
