@@ -25,4 +25,15 @@ public class Barco {
     public TipoDeCelda verCelda(int x, int y) {
         return this.celdasOcupadas[x - this.posicionX][y - this.posicionY];
     }
+
+    public Object dispararCelda(int x, int y) {
+        celdasOcupadas[x - this.posicionX][y - this.posicionY] = TipoDeCelda.TOCADO;
+        boolean hundido = true;
+        for (TipoDeCelda[] xx : this.celdasOcupadas) {
+            for (TipoDeCelda yy : xx) {
+                hundido &= (yy == TipoDeCelda.TOCADO);
+            }
+        }
+        return hundido ? TipoDeCelda.HUNDIDO : TipoDeCelda.TOCADO;
+    }
 }

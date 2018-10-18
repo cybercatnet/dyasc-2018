@@ -23,6 +23,14 @@ public class Tablero {
             }
         }
         return TipoDeCelda.AGUA;
+    }
 
+    public Object dispararCelda(int x, int y) {
+        for (Barco barco : this.barcos) {
+            if (barco.contiene(x, y)) {
+                return barco.dispararCelda(x, y);
+            }
+        }
+        return TipoDeCelda.AGUA;
     }
 }
