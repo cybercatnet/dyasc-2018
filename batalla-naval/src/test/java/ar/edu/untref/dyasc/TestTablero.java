@@ -38,8 +38,12 @@ public class TestTablero {
 
     @Test
     public void testCreoUnBoteEnUnaPosicionAleatoriaYVerificoQueEsteEnLaPosicionCreadaYQueTodoLoDemasSeaAgua() {
-        int ancho = ThreadLocalRandom.current().nextInt(1, 3 + 1);
-        int alto = ThreadLocalRandom.current().nextInt(1, 3 + 1);
+        int anchoMinimo = 3;
+        int anchoMaximo = 10;
+        int altoMinimo = 3;
+        int altoMaximo = 10;
+        int ancho = ThreadLocalRandom.current().nextInt(anchoMinimo, anchoMaximo + 1);
+        int alto = ThreadLocalRandom.current().nextInt(altoMinimo, altoMaximo + 1);
         Tablero tablero = new Tablero(ancho, alto);
         int posicionXBote = ThreadLocalRandom.current().nextInt(0, ancho + 1);
         int posicionYBote = ThreadLocalRandom.current().nextInt(0, alto + 1);
@@ -88,6 +92,48 @@ public class TestTablero {
                 } else {
                     Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
                 }
+            }
+        }
+    }
+
+    @Test
+    public void testCreoUnCruceroEnUnaPosicionAleatoriaYVerificoQueEsteEnLaPosicionCreadaYQueTodoLoDemasSeaAgua() {
+        int anchoMinimo = 3;
+        int anchoMaximo = 10;
+        int altoMinimo = 3;
+        int altoMaximo = 10;
+        int ancho = ThreadLocalRandom.current().nextInt(anchoMinimo, anchoMaximo + 1);
+        int alto = ThreadLocalRandom.current().nextInt(altoMinimo, altoMaximo + 1);
+        Tablero tablero = new Tablero(ancho, alto);
+        TipoDeOrientacion orientacion = TipoDeOrientacion.values()[ThreadLocalRandom.current().nextInt(TipoDeOrientacion.values().length)];
+        int posicionXCrucero;
+        int posicionYCrucero;
+
+        if (orientacion == TipoDeOrientacion.HORIZONTAL) {
+            posicionXCrucero = ThreadLocalRandom.current().nextInt(0, ancho - 3 + 1);
+            posicionYCrucero = ThreadLocalRandom.current().nextInt(0, alto - 1 + 1);
+        } else {
+            posicionXCrucero = ThreadLocalRandom.current().nextInt(0, ancho - 1 + 1);
+            posicionYCrucero = ThreadLocalRandom.current().nextInt(0, alto - 3 + 1);
+        }
+        Crucero crucero = new Crucero(posicionXCrucero, posicionYCrucero, orientacion);
+        tablero.agregarBarco(crucero);
+        for (int x = 0; x < ancho; x++) {
+            for (int y = 0; y < alto; y++) {
+                if (orientacion == TipoDeOrientacion.HORIZONTAL) {
+                    if ((y == posicionYCrucero) && (x == posicionXCrucero || x == posicionXCrucero + 1 || x == posicionXCrucero + 2)) {
+                        Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                    } else {
+                        Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                    }
+                } else {
+                    if ((x == posicionXCrucero) && (y == posicionYCrucero || y == posicionYCrucero + 1 || y == posicionYCrucero + 2)) {
+                        Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                    } else {
+                        Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                    }
+                }
+
             }
         }
     }
