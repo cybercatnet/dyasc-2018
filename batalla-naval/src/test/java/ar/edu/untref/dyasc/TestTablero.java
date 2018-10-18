@@ -4,6 +4,15 @@ import org.junit.Assert;
 import java.util.concurrent.ThreadLocalRandom;
 import org.junit.Test;
 
+import Barco.Bote;
+import Barco.Crucero;
+import Tipos.TipoDeCelda;
+import Tipos.TipoDeOrientacion;
+import tablero.Tablero;
+import tablero.barcoFueraDelTableroException;
+import tablero.barcoSuperpuestoException;
+import tablero.coordenadaFueraDelTableroException;
+
 public class TestTablero {
 
     @Test
@@ -473,9 +482,9 @@ public class TestTablero {
     public void testCreoDosCrucerosSuperpuestosYEsperoException() throws barcoSuperpuestoException {
         int ancho = 10;
         int alto = 10;
-        int posicionXCrucero1 = 0;
+        int posicionXCrucero1 = 2;
         int posicionYCrucero1 = 0;
-        int posicionXCrucero2 = 2;
+        int posicionXCrucero2 = 0;
         int posicionYCrucero2 = 0;
         Tablero tablero = new Tablero(ancho, alto);
         Crucero crucero1 = new Crucero(posicionXCrucero1, posicionYCrucero1, TipoDeOrientacion.HORIZONTAL);

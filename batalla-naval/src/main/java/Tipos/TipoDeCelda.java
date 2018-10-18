@@ -1,4 +1,4 @@
-package ar.edu.untref.dyasc;
+package Tipos;
 
 public enum TipoDeCelda {
     AGUA, BARCO, TOCADO, HUNDIDO

@@ -1,4 +1,6 @@
-package ar.edu.untref.dyasc;
+package Barco;
+
+import Tipos.TipoDeCelda;
 
 public class Bote extends Barco {
 
