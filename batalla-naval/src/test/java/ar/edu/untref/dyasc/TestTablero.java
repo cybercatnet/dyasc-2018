@@ -288,4 +288,13 @@ public class TestTablero {
             }
         }
     }
+    
+    @Test(expected = barcoFueraDelTableroException.class)
+    public void testCreoUnBoteFueraDelTableroYEsperoException() throws barcoFueraDelTableroException {
+        int ancho = 1;
+        int alto = 1;
+        Tablero tablero = new Tablero(ancho, alto);
+        Bote bote = new Bote(1, 0);
+        tablero.agregarBarco(bote);
+    }
 }
