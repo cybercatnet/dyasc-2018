@@ -11,7 +11,7 @@ public class Tablero {
         this.ancho = ancho;
         this.alto = alto;
     }
-    
+
     public void agregarBarco(Barco barco) {
         this.barcos.add(barco);
     }

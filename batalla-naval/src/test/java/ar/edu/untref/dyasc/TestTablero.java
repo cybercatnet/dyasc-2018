@@ -73,4 +73,22 @@ public class TestTablero {
             }
         }
     }
+
+    @Test
+    public void testCreoUnCruceroVerticalYVerificoQueEsteEnLaPosicionCreadaYQueTodoLoDemasSeaAgua() {
+        int ancho = 10;
+        int alto = 10;
+        Tablero tablero = new Tablero(ancho, alto);
+        Crucero crucero = new Crucero(0, 0, TipoDeOrientacion.VERTICAL);
+        tablero.agregarBarco(crucero);
+        for (int x = 0; x < ancho; x++) {
+            for (int y = 0; y < alto; y++) {
+                if ((x == 0) && (y == 0 || y == 1 || y == 2)) {
+                    Assert.assertEquals(TipoDeCelda.BARCO, tablero.verCelda(x, y));
+                } else {
+                    Assert.assertEquals(TipoDeCelda.AGUA, tablero.verCelda(x, y));
+                }
+            }
+        }
+    }
 }
